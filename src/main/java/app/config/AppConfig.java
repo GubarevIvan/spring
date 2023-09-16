@@ -1,18 +1,29 @@
 package app.config;
 
-import app.model.Dog;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import app.model.*;
+import org.springframework.context.annotation.*;
+
 
 @Configuration
 @ComponentScan(basePackages = "app")
 public class AppConfig {
     @Bean(name="dog")
-//    @Scope("prototype")
+    @Scope("prototype")
     public Dog getDog() {
         Dog dog = new Dog();
         return dog;
+    }
+
+    @Bean(name="cat")
+    @Scope("prototype")
+    public Cat getCat() {
+        Cat cat = new Cat();
+        return cat;
+    }
+    @Bean(name="timer")
+    @Scope("prototype")
+    public Timer getTime() {
+        Timer timer = new Timer();
+        return timer;
     }
 }

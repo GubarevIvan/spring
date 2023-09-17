@@ -9,6 +9,8 @@ public class Ocean1 {
     @Autowired
     private Island2 island;
 
+    public Island2 getIsland() {return island;}
+
     @Override
     public String toString() {
         return "на океане остров " + island.toString();

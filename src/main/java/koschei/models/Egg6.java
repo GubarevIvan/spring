@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Egg6 {
-    private Needle7 needle;
-    public Egg6() {};
     @Autowired
-    public Egg6(Needle7 needle) {
-        this.needle = needle;
+    private Needle7 needle;
+
+    public Needle7 getEgg6() {
+        return needle;
     }
 
     @Override

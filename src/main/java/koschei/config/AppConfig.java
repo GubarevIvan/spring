@@ -18,13 +18,13 @@ public class AppConfig {
     }
 
     @Bean(name = "wood")
-    public static Wood3 getWood(Rabbit4 rabbit) {
-        return new Wood3(rabbit);
+    public static Wood3 getWood() {
+        return new Wood3();
     }
 
     @Bean(name = "rabbit")
-    public static Rabbit4 getRabbit(Duck5 duck) {
-        return new Rabbit4(duck);
+    public static Rabbit4 getRabbit() {
+        return new Rabbit4();
     }
     @Bean(name = "duck")
     public static Duck5 getDuck() {
@@ -33,8 +33,7 @@ public class AppConfig {
 
     @Bean(name = "egg")
     public static Egg6 getEgg() {
-        Egg6 egg = new Egg6(getNeedle());
-        return egg;
+        return new Egg6();
     }
 
     @Bean(name = "needle")

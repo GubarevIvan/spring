@@ -22,6 +22,12 @@ public class Car {
 
     public Car() {}
 
+    public Car(String name, int series, User user) {
+        this.model = name;
+        this.series = series;
+        this.user = user;
+    }
+
     public Long getId() {
         return id;
     }
@@ -60,7 +66,6 @@ public class Car {
                 "id=" + id +
                 ", model='" + model + '\'' +
                 ", series=" + series +
-                ", user=" + user +
                 '}';
     }
 }

@@ -1,7 +1,6 @@
 package hiber.model;
 
 import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
 
 @Entity
@@ -67,12 +66,11 @@ public class User {
 
    @Override
    public String toString() {
-      return "\nUser{" +
+      return "User{" +
               "id=" + id +
               ", firstName='" + firstName + '\'' +
               ", lastName='" + lastName + '\'' +
               ", email='" + email + '\'' +
-              ", car=" + car +
               '}';
    }
 }

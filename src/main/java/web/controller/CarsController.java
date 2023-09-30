@@ -13,8 +13,11 @@ public class CarsController {
     @GetMapping(value = "/cars")
     public String printCar(@RequestParam(value = "count", required = false) String count, ModelMap model) {
         List<Car> cars = carsListDao.getCars();
-        int max = Integer.parseInt(count) >= 5 ? 5 : Integer.parseInt(count);
-        cars = cars.subList(0, max);
+        if (count != null) {
+            int max = Integer.parseInt(count) >= 5 ? 5 : Integer.parseInt(count);
+            cars = cars.subList(0, max);
+        }
+
         model.addAttribute("cars", cars);
         return "cars";
     }

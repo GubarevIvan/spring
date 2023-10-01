@@ -10,23 +10,23 @@ public class User {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty(message = "Name should not to be empty.")
-    @Size(min = 2, max = 25, message = "Name should be between 2 and 25 characters.")
+//    @NotEmpty(message = "Name should not to be empty.")
+//    @Size(min = 2, max = 25, message = "Name should be between 2 and 25 characters.")
     @Column(name = "name")
     private String name;
 
-    @NotEmpty(message = "Name should not to be empty.")
-    @Size(min = 2, max = 25, message = "Name should be between 2 and 25 characters.")
-    @Column(name = "last-name")
+//    @NotEmpty(message = "Name should not to be empty.")
+//    @Size(min = 2, max = 25, message = "Name should be between 2 and 25 characters.")
+    @Column(name = "last_name")
     private String lastName;
 
-    @Min(value = 0, message = "Age should be greater than 0.")
+//    @Min(value = 0, message = "Age should be greater than 0.")
     @Column(name = "age")
     private int age;
 
     @Column(name = "email")
-    @NotEmpty(message = "Email should not be empty")
-    @Email
+//    @NotEmpty(message = "Email should not be empty")
+//    @Email
     private String email;
 
     public User() {}

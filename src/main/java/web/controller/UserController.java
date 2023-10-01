@@ -10,7 +10,7 @@ import web.service.UserService;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
    private final UserService userService;
 
@@ -19,45 +19,45 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/index")
+    @GetMapping()
     public String index(Model model) {
         model.addAttribute("users", userService.findAll());
-        return "/index";
+        return "/users/index";
     }
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("user", userService.findOne(id));
-        return "/show";
+        return "/users/show";
     }
 
     @GetMapping("/new")
     public String newUser(@ModelAttribute("user") User user) {
-        return "/new";
+        return "/users/new";
     }
 
     @PostMapping()
     public String create(@ModelAttribute("user") @Valid User user,
                          BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) return "/new";
+        if (bindingResult.hasErrors()) return "/users/new";
         userService.save(user);
-        return "/index";
+        return "redirect:/users";
     }
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("user", userService.findOne(id));
-        return "/edit";
+        return "/users/edit";
     }
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("users") @Valid User user,
                          BindingResult bindingResult, @PathVariable("id") int id) {
-        if (bindingResult.hasErrors()) return "/edit";
+        if (bindingResult.hasErrors()) return "/users/edit";
         userService.update((long) id, user);
-        return "/index";
+        return "redirect:/users";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
         userService.delete((long)id);
-        return "/index";
+        return "redirect:/users";
     }
 }

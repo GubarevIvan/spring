@@ -12,10 +12,10 @@
         <h2 th:text="${'id: ' + user.getId()}">VALUE</h2>
         <h2 th:text="${'email: ' + user.getEmail()}">VALUE</h2>
         <button>
-            <a th:href="@{/user/{id}/edit(id=${user.getId()})}">Edit</a>
+            <a th:href="@{/users/{id}/edit(id=${user.getId()})}">Edit</a>
         </button>
         <br>
-        <form th:method="DELETE" th:action="@{/user/{id}(id=${user.getId()})}">
+        <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
             <button type="submit">DELETE</button>
         </form>
     </div>

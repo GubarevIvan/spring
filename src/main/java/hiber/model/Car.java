@@ -16,16 +16,11 @@ public class Car {
     @Column(name = "series")
     private int series;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
-
     public Car() {}
 
-    public Car(String name, int series, User user) {
+    public Car(String name, int series) {
         this.model = name;
         this.series = series;
-        this.user = user;
     }
 
     public Long getId() {
@@ -50,14 +45,6 @@ public class Car {
 
     public void setSeries(int series) {
         this.series = series;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     @Override

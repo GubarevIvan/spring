@@ -11,13 +11,14 @@ import javax.persistence.TypedQuery;
 import java.sql.SQLException;
 import java.util.List;
 
+
 @Service
+@Transactional
 public class UserServiceImp implements UserService {
 
    @Autowired
    private UserDao userDao;
 
-   @Transactional
    @Override
    public void add(User user) {
       userDao.add(user);
@@ -29,15 +30,8 @@ public class UserServiceImp implements UserService {
       return userDao.listUsers();
    }
 
-   @Transactional
    @Override
-   public void addUserCar(User user, Car car) {
-      userDao.addUserCar(user, car);
-   }
-
-   @Transactional
-   @Override
-   public User getCarToUser(String model, int series) {
-      return userDao.getCarToUser(model, series);
+   public void remove(Long id) {
+      userDao.remove(id);
    }
 }

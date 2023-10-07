@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.stream.Stream;
 
 @Repository
 public class UserDaoImp implements UserDao {
@@ -23,19 +24,14 @@ public class UserDaoImp implements UserDao {
       return query.getResultList();
    }
 
-   @Override
-   public void addUserCar(User user, Car car) {
-      sessionFactory.getCurrentSession().save(user);
-      sessionFactory.getCurrentSession().save(car);
+   public User getUserById(Long id) {
+      User user = sessionFactory.getCurrentSession().get(User.class, id);
+      return user;
    }
 
    @Override
-   public User getCarToUser(String model, int series) {
-      String hql = "select user from  User user where  user.car.model = :param1 and user.car.series = :param2";
-         TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(hql, User.class);
-         query.setParameter("param1", model);
-         query.setParameter("param2", series);
-
-      return query.getSingleResult();
+   public void remove(Long id) {
+    User user = getUserById(id);
+      sessionFactory.getCurrentSession().remove(user);
    }
 }

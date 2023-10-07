@@ -1,6 +1,0 @@
-web\service\UserService.class
-web\config\AppInit.class
-web\config\WebConfig.class
-web\controller\UserController.class
-web\repositories\UserRepository.class
-web\model\User.class

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class UserService {
     private final UserRepository userRepository;
 
@@ -22,23 +22,21 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    @Transactional(readOnly = true)
     public User findOne (long id) {
         Optional<User> foundUser = userRepository.findById(id);
         return foundUser.orElse(null);
     }
 
-    @Transactional
     public void save(User user) {
     userRepository.save(user);
     }
 
-    @Transactional
     public void update(Long id, User updateUser) {
         updateUser.setId(id);
         userRepository.save(updateUser);
     }
 
-    @Transactional
     public void delete(Long id) {
         userRepository.deleteById(id);
     }

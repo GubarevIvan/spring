@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import web.model.User;
 import web.service.UserService;
+import web.service.UserServiceImp;
 import javax.validation.Valid;
 
 @Controller
@@ -14,7 +15,6 @@ import javax.validation.Valid;
 public class UserController {
    private final UserService userService;
 
-   @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }

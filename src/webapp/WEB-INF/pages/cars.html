@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-    <table style="width:100%">
+    <table>
         <th:block th:each="car : ${cars}">
             <tr>
                 <h1 th:text="${car.getCarBrand() + ', ' + car.getColor() + ', ' + car.getClearance()}"></h1>
